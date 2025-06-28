@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.tag_details'|trans({'%id%': tag.id|default('')}, 'tag') }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.tag_details'|trans({'%id%': tag.id|default('')}, 'tag') }}</h1>
+    {% if tag is defined and tag is not null %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans({}, 'tag') }}</dt>
+            <dd>{{ tag.id }}</dd>
+            <dt>{{ 'label.created_at'|trans({}, 'tag') }}</dt>
+            <dd>{{ tag.createdAt|format_date('long') }}</dd>
+            <dt>{{ 'label.updated_at'|trans({}, 'tag') }}</dt>
+            <dd>{{ tag.updatedAt|format_date('long') }}</dd>
+            <dt>{{ 'label.title'|trans({}, 'tag') }}</dt>
+            <dd>{{  tag.title }}</dd>
+        </dl>
+        <div style="display: flex; gap: 20px; max-width: 400px; margin: 20px;">
+            <a href="{{ url('tag_edit', {id: tag.id}) }}" title="{{ 'action.edit'|trans({}, 'tag') }}"
+               class="btn btn-warning flex-fill">
+                {{ 'action.edit'|trans({}, 'tag') }}
+            </a>
+            <a href="{{ url('tag_delete', {id: tag.id}) }}" title="{{ 'action.delete'|trans({}, 'tag') }}"
+               class="btn btn-danger flex-fill">
+                {{ 'action.delete'|trans({}, 'tag') }}
+            </a>
+        </div>
+        <p>
+            <a href="{{ url('tag_index') }}" title="{{ 'action.back_to_list'|trans({}, 'tag') }}"
+               class="btn btn-lg btn-primary">
+                {{ 'action.back_to_list'|trans({}, 'tag') }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans({}, 'tag') }}
+        </p>
+    {% endif %}
+{% endblock %}

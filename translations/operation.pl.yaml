@@ -1,0 +1,51 @@
+operation_list: "Lista Operacji"
+navbar:
+  wallet_list: "Portfele"
+  operation_list: "Historia operacji"
+  category_list: "Kategorie"
+  tag_list: "Tagi"
+
+title:
+  operation_create: "Utwórz operację"
+  operation_edit: "Edytuj operację"
+  operation_list: "Lista operacji"
+  operation_details: "Szczegóły operacji"
+
+label:
+  wallet: "Portfel"
+  category: "Kategoria"
+  current_balance: "Bieżące saldo"
+  id: "ID"
+  title: "Tytuł"
+  created_at: "Utworzono"
+  updated_at: "Zaktualizowano"
+  amount: "Kwota"
+  balance: "Saldo"
+  operation_description: "Opis operacji"
+  actions: "Akcje"
+  tags: "Tagi"
+  choose_wallet: "Wybierz portfel"
+  none: "Nie wybrano kategorii"
+  description: "Opis"
+  no_tags: "Brak tagów"
+
+action:
+  create: "Utwórz operację"
+  view: "Zobacz"
+  back_to_list: "Powrót do listy operacji"
+  to_operation_list: "Przejdź do listy operacji"
+  edit: "Edytuj operację"
+  action: "Akcja"
+  save: "Zapisz"
+  delete: "Usuń operację"
+  create_operation: "Utwórz operację"
+
+message:
+  empty_list: "Brak operacji do wyświetlenia."
+  form_error: "Wystąpił błąd podczas przesyłania formularza. Sprawdź poprawność danych."
+  edited_successfully: "Operacja została pomyślnie zaktualizowana."
+  created_successfully: "Operacja została pomyślnie utworzona"
+  balance_is_too_low: "Saldo jest zbyt niskie, aby wykonać operację"
+  author_not_found: "Nie masz uprawnień do edycji tej operacji"
+  record_not_found: "Nie znaleziono żądanej operacji"
+  user_not_auto: "Użytkownik nie jest autoryzowany"

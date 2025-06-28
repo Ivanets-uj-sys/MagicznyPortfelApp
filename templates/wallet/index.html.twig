@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.wallet_list'|trans({}, 'wallet') }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.wallet_list'|trans({}, 'wallet') }}</h1>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="navigation">
+            {% if pagination is defined and pagination.items|length %}
+                {{ knp_pagination_render(pagination) }}
+            {% endif %}
+        </div>
+        <a class="btn btn-dark" href="{{ url('wallet_create') }}" title="{{ 'action.create'|trans({}, 'wallet') }}">
+            {{ 'action.create'|trans({}, 'wallet') }}
+        </a>
+    </div>
+
+    {% if pagination is defined and pagination.items|length %}
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-1">
+            {% for wallet in pagination.items %}
+                <div class="col d-flex justify-content-center">
+                    <div class="card border-primary mb-3" style="max-width: 20rem; width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ wallet.title }}</h5>
+                            <p class="card-text">
+                                {{ 'label.created_at'|trans({}, 'wallet') }}: {{ wallet.createdAt|format_date('long') }}<br>
+                                {{ 'label.updated_at'|trans({}, 'wallet') }}: {{ wallet.updatedAt|format_date('long') }}
+                            </p>
+                            <div class="btn-group" role="group">
+                                {% if is_granted('WALLET_VIEW', wallet) %}
+                                <a href="{{ path('wallet_view', {id: wallet.id}) }}" class="btn btn-outline-primary btn-sm">
+                                    {{ 'action.view'|trans({}, 'wallet') }}
+                                </a>
+                                {% endif %}
+                                {% if is_granted('WALLET_EDIT', wallet) %}
+                                <a href="{{ path('wallet_edit', {id: wallet.id}) }}" class="btn btn-outline-secondary btn-sm">
+                                    {{ 'action.edit'|trans({}, 'wallet') }}
+                                </a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="navigation text-center mt-4">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            type: 'warning',
+            message: 'message.empty_list'|trans({}, 'wallet')
+        } %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+registration:
+  title: "Rejestracja"
+  heading: "Zarejestruj się"
+  form_error: "Błąd formularza"
+  field_error: "błąd pola"
+  email: "Email"
+  password: "Hasło"
+  register_button: "Zarejestruj się"
+  submit: "Potwierdź"
+  email_already_used: 'Ten adres e-mail jest już używany.'
+  success: 'Rejestracja zakończona sukcesem.'
+  not_blank: "Pole nie może być puste"
+  invalid_email: "Nieprawidłowy adres e-mail"
+  enter_password: "Hasło"
+  repeat_password: "Powtórz hasło"
+  passwords_must_match: "Hasła muszą być identyczne."
+  password_required: "Proszę podać hasło."
+  password_too_short: "Hasło musi mieć co najmniej {{ limit }} znaków."

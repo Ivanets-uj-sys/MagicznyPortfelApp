@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'edit_user.title'|trans({}, 'login') }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'edit_user.title'|trans({}, 'login') }}</h1>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message|trans({}, 'login') }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {{ form_start(editUserForm) }}
+    {{ form_row(editUserForm.email, {
+        label: 'edit_user.email'|trans({}, 'login'),
+        translation_domain: 'login'
+    }) }}
+
+    <button class="btn btn-primary">{{ 'edit_user.submit'|trans({}, 'login') }}</button>
+    {{ form_end(editUserForm) }}
+{% endblock %}

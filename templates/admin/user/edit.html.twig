@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.edit_user'|trans({}, 'admin') }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.edit_user'|trans({}, 'admin') }}: {{ user.email }}</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.email, {'label': 'label.email'|trans({}, 'admin')}) }}
+    {{ form_row(form.currentPassword, {'label': 'label.current_pass'|trans({}, 'admin')}) }}
+    {{ form_row(form.newPassword.first, {'label': 'label.password'|trans({}, 'admin')}) }}
+    {{ form_row(form.newPassword.second, {'label': 'label.sec_password'|trans({}, 'admin')}) }}
+    {{ form_row(form.roles, {'label': 'label.Roles'|trans({}, 'admin')}) }}
+    <button class="btn btn-success">{{ 'button.save'|trans({}, 'admin') }}</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('admin_user_index') }}" class="btn btn-secondary mt-3">{{ 'button.button_back'|trans({}, 'admin') }}</a>
+{% endblock %}

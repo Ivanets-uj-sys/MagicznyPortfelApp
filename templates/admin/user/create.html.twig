@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.create_user'|trans({}, 'admin') }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>{{ 'title.create_user'|trans({}, 'admin') }}</h1>
+
+        {# Wyświetl wiadomości flash, jeśli są #}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">{{ message }}</div>
+            {% endfor %}
+        {% endfor %}
+
+
+        {{ form_start(form) }}
+
+        {{ form_errors(form) }}
+        {{ form_row(form.email, {'label': 'label.email'|trans({}, 'admin')}) }}
+        {{ form_row(form.newPassword.first, {'label': 'label.password'|trans({}, 'admin')}) }}
+        {{ form_row(form.newPassword.second, {'label': 'label.sec_password'|trans({}, 'admin')}) }}
+        {{ form_row(form.roles, {'label': 'label.Roles'|trans({}, 'admin')}) }}
+
+        <button class="btn btn-success">{{ 'button.save'|trans({}, 'admin') }}</button>
+        {{ form_end(form) }}
+
+        <a href="{{ path('admin_user_index', {'_locale': app.request.locale}) }}" class="btn btn-secondary">
+            {{ 'button.back_to_list'|trans({}, 'admin') }}
+        </a>
+    </div>
+{% endblock %}
+

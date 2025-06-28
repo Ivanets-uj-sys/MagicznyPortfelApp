@@ -1,0 +1,54 @@
+login:
+  title: "Logowanie"
+  header: "Zaloguj się"
+  email_label: "Email"
+  email_placeholder: "Wpisz swój email"
+  password_label: "Hasło"
+  password_placeholder: "Wpisz hasło"
+  submit: "Zaloguj się"
+  no_account: "Nie masz konta?"
+  register_here: "Zarejestruj się tutaj"
+action:
+  login: "Zaloguj się"
+  logout: "Wyloguj się"
+change_user:
+  success: "Udało się zmienić dane użytkownika"
+  error:
+    email_used: "Ten mail jest już wykorzystany"
+change_password:
+  title: "Zmień hasło"
+  current_password: "Aktualne hasło"
+  new_password: "Nowe hasło"
+  new_password_repeat: "Powtórz nowe hasło"
+  submit: "Potwierdź"
+  success: "Hasło zostało zmienione."
+  email: "Email"
+  roles: "Role"
+  error:
+    current_password_blank: "Proszę podać aktualne hasło."
+    new_password_blank: "Proszę podać nowe hasło."
+    passwords_must_match: "Hasła muszą się zgadzać."
+    new_password_too_short: "Hasło musi mieć co najmniej {{ limit }} znaków."
+    must_be_logged_in: "Musisz być zalogowany, aby zmienić hasło."
+    invalid_current_password: "Stare hasło jest niepoprawne."
+    email_used: "This email is already in use."
+    email_blank: "Please enter your email."
+    invalid_email: "The email address is invalid."
+    no_access: "You are not allowed to edit this user."
+flash:
+  success: "Hasło zostało zmienione pomyślnie."
+  error: "Nie udało się zmienić hasła."
+logout:
+  not_blank: "Ta metoda może pozostać pusta – zostanie przechwycona przez ustawienie logout w konfiguracji firewalla."
+user:
+  deleted_successfully: "Użytkownik został pomyślnie usunięty"
+menu:
+  change_email: 'Zmień e-mail'
+  change_password: 'Zmień hasło'
+edit_user:
+  error:
+    email_used: 'Ten adres e-mail jest już zajęty.'
+  title: 'Edytuj użytkownika'
+  email: 'Adres e-mail'
+  submit: 'Zapisz zmiany'
+  success: "Użytkownik został zaktualizowany"

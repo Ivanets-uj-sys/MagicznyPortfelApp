@@ -1,0 +1,51 @@
+operation_list: "Operation List"
+navbar:
+  wallet_list: "Wallets"
+  operation_list: "History of Operations"
+  category_list: "Categories"
+  tag_list: "Tags"
+
+title:
+  operation_create: "Create Operation"
+  operation_edit: "Edit Operation"
+  operation_list: "Operation List"
+  operation_details: "Operation Details"
+
+label:
+  wallet: "Wallet"
+  category: "Category"
+  current_balance: "Balance"
+  id: "ID"
+  title: "Title"
+  created_at: "Created At"
+  updated_at: "Updated At"
+  amount: "Amount"
+  balance: "Balance"
+  operation_description: "Operation Description"
+  actions: "Actions"
+  tags: "Tagi"
+  choose_wallet: "Choose wallet"
+  none: "None category was choosen"
+  description: "Description"
+  no_tags: "No tags"
+
+action:
+  create: "Create Operation"
+  view: "View"
+  back_to_list: "Back to operation list"
+  to_operation_list: "Operation list"
+  edit: "Edit Operation"
+  action: "Action"
+  save: "Save"
+  delete: "Delete Operation"
+  create_operation: "Create Operation"
+
+message:
+  empty_list: "No operations to display"
+  form_error: "There was an error with the form submission. Please check your input."
+  edited_successfully: "The operation was edited successfully"
+  created_successfully: "The operation was created successfully"
+  balance_is_too_low: "The balance is too low to perform this operation"
+  author_not_found: "You do not have permission to modify this operation"
+  record_not_found: "The requested operation was not found"
+  user_not_auto: "User not authenticated"

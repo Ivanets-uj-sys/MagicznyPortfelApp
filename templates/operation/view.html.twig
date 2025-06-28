@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ 'title.operation_details'|trans({'%id%': operation.id|default('')}, 'operation') }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.operation_details'|trans({'%id%': operation.id|default('')}, 'operation') }}</h1>
+    {% if operation is defined and operation|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans({}, 'operation') }}</dt>
+            <dd>{{ operation.id }}</dd>
+	    <dt>{{ 'label.title'|trans({}, 'operation') }}</dt>
+	    <dd>{{ operation.title }}</dd>
+            <dt>{{ 'label.created_at'|trans({}, 'operation') }}</dt>
+            <dd>{{ operation.createdAt|format_date('long') }}</dd>
+            <dt>{{ 'label.updated_at'|trans({}, 'operation') }}</dt>
+            <dd>{{ operation.updatedAt|format_date('long') }}</dd>
+            <dt>{{ 'label.amount'|trans({}, 'operation') }}</dt>
+            <dd>{{  operation.amount|number_format(2) }}</dd>
+            <dt>{{ 'label.balance'|trans({}, 'operation') }}</dt>
+            <dd>{{ operation.balance|number_format(2) }}</dd>
+            <dt>{{ 'label.category'|trans({}, 'operation') }}</dt>
+            <dd>{{  operation.category.title }}</dd>
+            <dt>{{ 'label.operation_description'|trans({}, 'operation') }}</dt>
+            <dd>{{ operation.operationDescription|markdown_to_html }}</dd>
+
+        </dl>
+        <a href="{{ url('operation_edit', {id: operation.id}) }}" title="{{ 'action.delete'|trans({}, 'operation') }}"
+           class="btn btn-warning" style=" margin: 20px;">
+            {{ 'action.edit'|trans({}, 'operation') }}
+        </a>
+        <p>
+            <a href="{{ url('operation_index') }}" title="{{ 'action.back_to_list'|trans({}, 'operation') }}"
+		class="btn btn-primary">
+                {{ 'action.back_to_list'|trans({}, 'operation') }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans({}, 'operation') }}
+        </p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+title:
+  wallet_list: "Lista portfeli"
+  wallet_details: "Szczegóły portfela"
+  wallet_create: "Stwórz portfel"
+  wallet_edit: 'Edycja portfela'
+
+label:
+  created_at: "Utworzono"
+  updated_at: "Zaktualizowano"
+  title: "Tytuł"
+  id: 'ID portfela'
+
+action:
+  view: "Zobacz"
+  edit: "Edytuj"
+  create: "Utwórz portfel"
+  back_to_list: "Wróć do listy portfeli"
+  create_operation: "Utwórz nową operację dla tego portfela"
+  save: "Zapisz"
+message:
+  access_denied: "Dostęp zablokowany"
+  created_successfully: "Operacja została pomyślnie utworzona."
+  edited_successfully: "Operacja została pomyślnie zaktualizowana."
+  balance_is_too_low: "Nie można zrealizować operacji: saldo spadłoby poniżej zera."
+  wallet_not_found: "Nie znaleziono portfela."
+  no_operations: "W tym portfelu nie dokonano jeszcze żadnych operacji."
+  record_not_found: 'Nie znaleziono rekordu.'
+  wallet_not_set: "Ustaw portfel"
+  form_error: 'Formularz zawiera błędy.'
+  empty_list: 'Lista jest pusta.'

@@ -1,0 +1,47 @@
+title:
+  edit_user: "Edytuj użytkownika"
+  create_user: "Utwórz użytkownika"
+  view_user: "Zobacz użytkownika"
+  user:
+    list: "Lista użytkowników"
+
+label:
+  email: "Adres e-mail"
+  current_pass: "Aktualne hasło"
+  password: "Hasło"
+  sec_password: "Powtórz hasło"
+  Roles: "Role"
+  id: "ID"
+  view: "E-mail"
+  role: "Rola"
+
+button:
+  save: "Zapisz"
+  button_back: "Wstecz"
+  back_to_list: "Powrót do listy użytkowników"
+action:
+  edit: "Edytuj"
+  delete: "Usuń"
+  view: "Zobacz"
+  confirm_delete: "Czy na pewno chcesz usunąć ten element?"
+message:
+  empty_list: "Lista jest pusta."
+
+change_user:
+  success: "Dane użytkownika zostały pomyślnie zaktualizowane."
+  error:
+    email_used: "Ten adres e-mail jest już używany."
+
+change_password:
+  error:
+    no_access: "Nie masz uprawnień do zmiany tego hasła."
+    invalid_current_password: "Aktualne hasło jest nieprawidłowe."
+    email_blank: "Adres e-mail nie może być pusty."
+    invalid_email: "Wprowadź poprawny adres e-mail."
+    passwords_must_match: "Hasła muszą być identyczne."
+    new_password_too_short: "Hasło musi mieć co najmniej {{ limit }} znaków."
+
+current_password:
+  required: "Aktualne hasło jest wymagane."
+
+

@@ -1,0 +1,30 @@
+title:
+  category_list: "Category List"
+  category_details: "Category Details"
+  category_create: "Create Category"
+  category_delete: "Delete category #%id%"
+  category_edit: "Edit Category"
+label:
+  id: "ID"
+  created_at: "Created At"
+  updated_at: "Updated At"
+  title: "Title"
+  view: "View"
+
+action:
+  view: "View"
+  back_to_list: "Back to category list"
+  to_category_list: "Category list"
+  save: "Save Category"
+  delete: "Delete Category"
+  edit: "Edit Category"
+  action: "Action"
+  create: "Create category"
+message:
+  empty_list: "No categories to display"
+  record_not_found: "Record not found"
+  category_contains_tasks: "This record is used in some operations. Deleting it may cause database inconsistencies."
+  deleted_successfully: "Deleted successfully"
+  no_operations: "No operations according to this category"
+  created_successfully: "Created successfully"
+  edited_successfully: "Edited successfully"

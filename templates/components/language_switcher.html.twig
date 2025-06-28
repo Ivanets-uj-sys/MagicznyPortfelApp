@@ -1,0 +1,17 @@
+<div class="language-switcher" style="margin-bottom: 1rem;">
+    {% set currentRoute = app.request.attributes.get('_route') %}
+    {% set currentParams = app.request.attributes.get('_route_params')|default({}) %}
+    {% set currentLocale = app.request.locale %}
+
+    {% set otherLocale = currentLocale == 'pl' ? 'en' : 'pl' %}
+
+    {% set newParams = currentParams|merge({'_locale': otherLocale}) %}
+
+    <a href="{{ path(currentRoute, newParams) }}">
+        {% if currentLocale == 'pl' %}
+            🇬🇧 English
+        {% else %}
+            🇵🇱 Polski
+        {% endif %}
+    </a>
+</div>

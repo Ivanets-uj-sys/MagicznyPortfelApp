@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.wallet_edit'|trans({'%id%': wallet.id|default('')}, 'wallet') }}
+{% endblock %}
+
+{% block body %}
+    {% include 'default/_form_wallet.html.twig' with {
+        page_title: 'title.wallet_edit'|trans({'%id%': wallet.id|default('')}, 'wallet'),
+        form: form,
+        submit_label: 'action.edit'|trans({}, 'wallet'),
+        back_to_list_path: 'wallet_index',
+    } %}
+{% endblock %}

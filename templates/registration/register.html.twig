@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'registration.title'|trans({}, 'registration') }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-5" style="max-width: 400px;">
+        <h1 class="mb-4 text-center">{{ 'registration.heading'|trans({}, 'registration') }}</h1>
+
+        {# Komunikaty flash #}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        {{ form_start(registrationForm, {
+            method: 'POST',
+            action: path('app_register', {'_locale': app.request.locale})
+        }) }}
+
+        {# Lista błędów formularza #}
+        {% if registrationForm.vars.errors|length > 0 %}
+            <ul class="alert alert-danger">
+                {% for error in registrationForm.vars.errors %}
+                    <li><strong>{{ 'registration.form_error'|trans({}, 'registration') }}:</strong> {{ error.message }}</li>
+                {% endfor %}
+                {% for child in registrationForm %}
+                    {% for error in child.vars.errors %}
+                        <li><strong>{{ child.vars.label ?: child.vars.name }} {{ 'registration.field_error'|trans }}:</strong> {{ error.message }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword.first) }}
+        {{ form_row(registrationForm.plainPassword.second) }}
+
+        <button type="submit" class="btn btn-primary w-100 mt-3">{{ 'registration.submit'|trans({}, 'registration') }}</button>
+
+        {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}

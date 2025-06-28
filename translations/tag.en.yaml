@@ -1,0 +1,32 @@
+title:
+  tag_edit: "Edit Tag"
+  tag_list: "Tag List"
+  tag_details: "Tag Details"
+  tag_create: "Create Tag"
+  tag_delete: "Delete Tag #%id%"
+
+label:
+  id: "ID"
+  created_at: "Created At"
+  updated_at: "Updated At"
+  title: "Title"
+  view: "View"
+
+action:
+  view: "View"
+  back_to_list: "Back to Tag list"
+  to_Tag_list: "Tag list"
+  save: "Save Tag"
+  delete: "Delete Tag"
+  edit: "Edit Tag"
+  action: "Action"
+  create: "Create Tag"
+
+message:
+  empty_list: "No categories to display"
+  record_not_found: "Record not found"
+  Tag_contains_tasks: "This record is used in some operations. Deleting it may cause database inconsistencies."
+  deleted_successfully: "Deleted successfully"
+  no_operation: "No operations according to this Tag"
+  created_successfully: "Created successfully"
+  edited_successfully: "Tag has been edited successfully"

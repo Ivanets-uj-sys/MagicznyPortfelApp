@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.operation_list'|trans({}, 'operation')  }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'operation_list'|trans({}, 'operation')  }}</h1>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            {% if pagination is defined and pagination.items|length %}
+                <div class="card text-white bg-dark mb-3" style="max-width: 22rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ 'label.current_balance'|trans({}, 'operation') }}</h5>
+                        <p class="card-text" style="font-size: 1.5rem;">
+                            {{ total_balance is not null ? total_balance|number_format(2, '.', ',') : '0.00' }} zł
+                        </p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <a href="{{ url('operation_create') }}" class="btn btn-success">
+                {{ 'action.create'|trans({}, 'operation') }}
+            </a>
+        </div>
+    </div>
+
+    {% if pagination is defined and pagination.items|length %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans({}, 'operation'), 'operation.id') }}</th>
+	            <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans({}, 'operation'), 'operation.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans({}, 'operation'), 'operation.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans({}, 'operation'), 'operation.updatedAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.amount'|trans({}, 'operation'), 'operation.amount') }}</th>
+                <th>{{ 'label.category'|trans({}, 'operation') }}</th>
+                <th>{{ 'label.tags'|trans({}, 'operation') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.operation_description'|trans({}, 'operation'), 'operation.operationDescription') }}</th>
+                <th>{{ 'label.actions'|trans({}, 'operation')  }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for operation in pagination.items %}
+                <tr>
+                    <td><span class="badge bg-primary">{{ operation.id }}</span></td>
+                    <td>{{ operation.title }}</td>
+                    <td>{{ operation.createdAt|format_date('long') }}</td>
+                    <td>{{ operation.updatedAt|format_date('long') }}</td>
+                    <td>{{ operation.amount|number_format(2)  }}</td>
+                    <td>
+                        <a href="{{ url('operation_index', {'categoryId': operation.category.id}) }}"
+                           class="badge bg-primary text-decoration-none"
+                           title="{{ operation.category.title }}">
+                            {{ operation.category.title }}
+                        </a>
+                    </td>
+                    <td>
+                        {% if operation.tags is defined and operation.tags|length %}
+                            {% for tag in operation.tags %}
+                                <a href="{{ url('operation_index', {'tagId': tag.id}) }}"
+                                   class="badge bg-secondary text-decoration-none me-1"
+                                   title="{{ tag.title }}">
+                                    {{ tag.title }}
+                                </a>
+                            {% endfor %}
+                        {% else %}
+                            <span class="badge bg-light text-dark">
+                                {{ 'label.no_tags'|trans({}, 'operation') }}
+                            </span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if operation.operationDescription %}
+                            {{ operation.operationDescription | markdown_to_html }}
+                        {% endif %}
+                    </td>
+
+		    <td>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ 'action.action'|trans({}, 'operation') }}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {% if is_granted('OPERATION_VIEW', operation) %}
+                            <li>
+                                <a class="dropdown-item" href="{{ path('operation_view', {id: operation.id}) }}" title="{{ 'action.view'|trans({}, 'operation') }}">
+                                    {{ 'action.view'|trans({}, 'operation') }}
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('OPERATION_EDIT', operation) %}
+                            <li>
+                                <a class="dropdown-item" href="{{ path('operation_edit', {id: operation.id}) }}" title="{{ 'action.edit'|trans({}, 'operation') }}">
+                                    {{ 'action.edit'|trans({}, 'operation') }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    {% else %}
+        <p>
+            {{ 'message.empty_list'|trans({}, 'operation')  }}
+        </p>
+    {% endif %}
+{% endblock %}
+
+

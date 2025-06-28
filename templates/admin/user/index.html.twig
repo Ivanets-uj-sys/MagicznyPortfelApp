@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.user.list'|trans({}, 'admin') }}
+{% endblock %}
+
+{% block body %}
+    <h1>    {{ 'title.user.list'|trans({}, 'admin') }}</h1>
+    {% if pagination is defined and pagination.items|length %}
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+        <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans({}, 'admin'), 'user.id') }}</th>
+            <th>{{ 'label.view'|trans({}, 'admin') }}</th>
+            <th>{{  'label.role'|trans({}, 'admin') }}</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <a href="{{ path('admin_user_create', {'_locale': app.request.locale}) }}" class="btn btn-success mb-3">
+            {{ 'title.create_user'|trans({}, 'admin') }}
+        </a>
+        {% for user in pagination.items %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles|join(', ') }}</td>
+                <td>
+                    <a href="{{ path('admin_user_view', {id: user.id}) }}" class="btn btn-sm btn-info">
+                        {{ 'action.view'|trans({}, 'admin') }}
+                    </a>
+                    <a href="{{ path('admin_user_edit', {id: user.id}) }}" class="btn btn-sm btn-primary">
+                        {{ 'action.edit'|trans({}, 'admin') }}
+                    </a>
+
+                    <form method="post" action="{{ path('admin_user_delete', {id: user.id}) }}"
+                          style="display:inline;"
+                          onsubmit="return confirm('{{ 'action.confirm_delete'|trans({}, 'admin') }}');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete-user-' ~ user.id) }}">
+                        <button class="btn btn-sm btn-danger">{{ 'action.delete'|trans({}, 'admin') }}</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            type: 'warning',
+            message: 'message.empty_list'|trans({}, 'admin')
+        } %}
+    {% endif %}
+{% endblock %}

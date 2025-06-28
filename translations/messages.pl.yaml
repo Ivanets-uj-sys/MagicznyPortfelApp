@@ -1,0 +1,8 @@
+action:
+  edit: "Edytuj"
+
+registration:
+  field_error: "Sprawdź poprawność pól i spróbuj ponownie."
+
+message:
+  form_error: "Wystąpił błąd podczas wysyłania formularza"

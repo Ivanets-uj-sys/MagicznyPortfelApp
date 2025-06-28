@@ -1,0 +1,82 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.category_list'|trans({}, 'category')  }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.category_list'|trans({}, 'category')  }}</h1>
+    {% if pagination is defined and pagination.items|length %}
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+            <a class="btn btn-dark" href="{{ url('category_create') }}" title="{{ 'action.create'|trans({}, 'category') }}">
+                {{ 'action.create'|trans({}, 'category') }}
+            </a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans({}, 'category') , 'category.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans({}, 'category') , 'category.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans({}, 'category') , 'category.updatedAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans({}, 'category') , 'category.title') }}</th>
+                <th>{{ 'label.view'|trans({}, 'category')  }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in pagination.items %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.createdAt|format_date('long') }}</td>
+                    <td>{{ category.updatedAt|format_date('long') }}</td>
+                    <td>{{ category.title }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ 'action.action'|trans({}, 'category') }}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                {% if is_granted('CATEGORY_VIEW', category) %}
+                                <li><a class="dropdown-item" href="{{ url('category_view', {id: category.id}) }}" title="{{ 'action.view'|trans({}, 'category') }}">
+                                        {{ 'action.view'|trans({}, 'category') }}
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% if is_granted('CATEGORY_EDIT', category) %}
+                                <li><a class="dropdown-item" href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans({}, 'category') }}">
+                                        {{ 'action.edit'|trans({}, 'category') }}
+                                    </a>
+                                </li>
+                                {% endif %}
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                {% if is_granted('CATEGORY_DELETE', category) %}
+                                <li>
+                                    <a class="dropdown-item" href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans({}, 'category') }}">
+                                        {{ 'action.delete'|trans({}, 'category') }}
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </td> 
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+	{% include 'default/_single_alert_message.html.twig' with {
+        type: 'warning',
+        message: 'message.empty_list'|trans({}, 'category') 
+	} %}
+    {% endif %}
+{% endblock %}

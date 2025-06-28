@@ -1,0 +1,18 @@
+registration:
+  title: "Registration"
+  heading: "Sign Up"
+  form_error: "Form error"
+  field_error: "field error"
+  email: "Email"
+  password: "Password"
+  register_button: "Register"
+  submit: "Submit"
+  email_already_used: 'This email address is already in use.'
+  success: 'Registration completed successfully.'
+  not_blank: "This field cannot be blank"
+  invalid_email: "Invalid email address"
+  enter_password: "Password"
+  repeat_password: "Repeat password"
+  passwords_must_match: "Passwords must match."
+  password_required: "Please enter a password."
+  password_too_short: "Password must be at least {{ limit }} characters long."

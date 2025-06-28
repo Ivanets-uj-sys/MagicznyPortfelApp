@@ -1,0 +1,18 @@
+registration:
+  not_blank: 'This field cannot be blank.'
+  invalid_email: 'Invalid email address.'
+  password_required: 'Password is required.'
+  password_too_short: 'The password is too short.'
+edit_user:
+  error:
+    email_blank: "Email address cannot be blank"
+    invalid_email: "Invalid email address"
+current_password:
+  required: "Current password is required"
+change_password:
+  error:
+    new_password_blank: "Please enter a new password."
+    new_password_too_short: "Your password must be at least {{ limit }} characters long."
+    email_blank: "Please enter your email."
+    invalid_email: "The email is not valid."
+    passwords_must_match: 'Passwords must match.'

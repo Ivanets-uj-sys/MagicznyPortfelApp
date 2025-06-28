@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'login.title'|trans({}, 'login') }}{% endblock %}
+
+{% block body %}
+<div class="container mt-5" style="max-width: 400px;">
+    <h1 class="mb-4 text-center">{{ 'login.header'|trans({}, 'login') }}</h1>
+
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    {{ error.messageKey|trans(error.messageData, 'security') }}
+</div>
+{% endif %}
+
+<form method="post" action="{{ path('app_login') }}">
+    <div class="mb-3">
+        <label for="inputEmail" class="form-label">{{ 'login.email_label'|trans({}, 'login') }}</label>
+        <input
+                type="email"
+                id="inputEmail"
+                name="_username"
+                class="form-control"
+                value="{{ last_username ?? '' }}"
+                required
+                autofocus
+                placeholder="{{ 'login.email_placeholder'|trans({}, 'login') }}"
+        >
+    </div>
+
+    <div class="mb-3">
+        <label for="inputPassword" class="form-label">{{ 'login.password_label'|trans({}, 'login') }}</label>
+        <input
+                type="password"
+                id="inputPassword"
+                name="_password"
+                class="form-control"
+                required
+                placeholder="{{ 'login.password_placeholder'|trans({}, 'login') }}"
+        >
+    </div>
+
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+    <button type="submit" class="btn btn-primary w-100">{{ 'login.submit'|trans({}, 'login') }}</button>
+</form>
+    <div class="text-center mt-3">
+        <p>
+            {{ 'login.no_account'|trans({}, 'login') }} <a href="{{ path('app_register') }}">{{ 'login.register_here'|trans({}, 'login') }}</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

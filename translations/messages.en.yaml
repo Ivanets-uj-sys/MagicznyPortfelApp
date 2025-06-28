@@ -1,0 +1,8 @@
+action:
+  edit: "Edit"
+
+registration:
+  field_error: "Please check the fields and try again."
+
+message:
+  form_error: "There was an error with the form submission"

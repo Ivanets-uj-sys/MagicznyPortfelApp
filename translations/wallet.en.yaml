@@ -1,0 +1,30 @@
+title:
+  wallet_list: "Wallet list"
+  wallet_details: "Wallet Details"
+  wallet_create: "Create Wallet"
+  wallet_edit: 'Edit Wallet'
+
+label:
+  created_at: "Created"
+  updated_at: "Updated"
+  title: "Title"
+  id: 'Wallet ID'
+
+action:
+  view: "View"
+  edit: "Edit"
+  create: "Create Wallet"
+  back_to_list: "Go back to list of wallets"
+  create_operation: "Create a new operation for this wallet"
+  save: "Save"
+message:
+  access_denied: "Access denied"
+  created_successfully: "Operation created successfully."
+  edited_successfully: "Operation edited successfully."
+  balance_is_too_low: "The operation could not be completed: balance would fall below zero."
+  wallet_not_found: "Wallet not found."
+  no_operations: "No operations have been recorded in this wallet yet."
+  record_not_found: 'Record not found.'
+  wallet_not_set: "Wallet not set"
+  form_error: 'The form contains errors.'
+  empty_list: 'The list is empty.'

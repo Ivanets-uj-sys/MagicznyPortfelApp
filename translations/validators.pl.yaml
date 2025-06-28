@@ -1,0 +1,19 @@
+registration:
+  not_blank: 'To pole nie może być puste.'
+  invalid_email: 'Nieprawidłowy adres e-mail.'
+  password_required: 'Hasło jest wymagane.'
+  password_too_short: 'Hasło jest za krótkie.'
+edit_user:
+  error:
+    email_blank: "Adres e-mail nie może być pusty"
+    invalid_email: "Nieprawidłowy adres e-mail"
+current_password:
+  required: "Wymagane jest podanie aktualnego hasła"
+
+change_password:
+  error:
+    new_password_blank: "Proszę wprowadzić nowe hasło."
+    new_password_too_short: "Twoje hasło musi mieć co najmniej {{ limit }} znaków."
+    email_blank: "Proszę wprowadzić adres e-mail."
+    invalid_email: "Adres e-mail jest nieprawidłowy."
+    passwords_must_match: 'Hasła muszą być identyczne.'

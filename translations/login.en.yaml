@@ -1,0 +1,55 @@
+login:
+  title: "Login"
+  header: "Sign In"
+  email_label: "Email"
+  email_placeholder: "Enter your email"
+  password_label: "Password"
+  password_placeholder: "Enter your password"
+  submit: "Log In"
+  no_account: "Don't have an account?"
+  register_here: "Register here"
+action:
+  login: "Login"
+  logout: "Logout"
+change_user:
+  success: "Success"
+  error:
+    email_used: "This email is already used"
+change_password:
+  title: "Change Password"
+  current_password: "Current Password"
+  new_password: "New Password"
+  new_password_repeat: "Repeat New Password"
+  submit: "Submit"
+  success: "Password has been changed."
+  email: "Email"
+  roles: "Roles"
+
+  error:
+    current_password_blank: "Please enter your current password."
+    new_password_blank: "Please enter a new password."
+    passwords_must_match: "The passwords must match."
+    new_password_too_short: "The password must be at least {{ limit }} characters long."
+    invalid_current_password: "The current password is incorrect."
+    must_be_logged_in: "You must be logged in to change the password."
+    email_used: "Ten adres e-mail jest już zajęty."
+    email_blank: "Wprowadź adres e-mail."
+    invalid_email: "Adres e-mail jest nieprawidłowy."
+    no_access: "Nie masz uprawnień do edycji tego użytkownika."
+flash:
+  success: "Your password has been changed successfully."
+  error: "Failed to change the password."
+logout:
+  not_blank: "This method can be blank - it will be intercepted by the logout key on your firewall."
+user:
+  deleted_successfully: "User has been successfully deleted"
+edit_user:
+  error:
+    email_used: 'This email address is already taken.'
+  title: 'Edit User'
+  email: 'Email Address'
+  submit: 'Save Changes'
+  success: "User has been successfully updated"
+menu:
+  change_email: 'Change Email'
+  change_password: 'Change Password'

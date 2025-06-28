@@ -1,0 +1,47 @@
+title:
+  edit_user: "Edit User"
+  create_user: "Create User"
+  view_user: "View User"
+  user:
+    list: "User List"
+
+label:
+  email: "Email"
+  current_pass: "Current Password"
+  password: "Password"
+  sec_password: "Confirm Password"
+  Roles: "Roles"
+  id: "ID"
+  view: "Email"
+  role: "Role"
+
+button:
+  save: "Save"
+  button_back: "Back"
+  back_to_list: "Go back to user list"
+action:
+  edit: "Edit"
+  delete: "Delete"
+  view: "View"
+  confirm_delete: "Are you sure you want to delete this item?"
+
+message:
+  empty_list: "The list is empty."
+
+change_user:
+  success: "User details updated successfully."
+  error:
+    email_used: "This email address is already in use."
+
+change_password:
+  error:
+    no_access: "You do not have permission to change this password."
+    invalid_current_password: "The current password is invalid."
+    email_blank: "Email cannot be blank."
+    invalid_email: "Please enter a valid email address."
+    passwords_must_match: "Passwords must match."
+    new_password_too_short: "Password must be at least {{ limit }} characters long."
+
+current_password:
+  required: "Current password is required."
+

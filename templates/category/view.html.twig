@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.category_details'|trans({'%id%': category.id|default('')}, 'category') }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.category_details'|trans({'%id%': category.id|default('')}, 'category') }}</h1>
+    {% if category is defined and category is not null %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans({}, 'category') }}</dt>
+            <dd>{{ category.id }}</dd>
+            <dt>{{ 'label.created_at'|trans({}, 'category') }}</dt>
+            <dd>{{ category.createdAt|format_date('long') }}</dd>
+            <dt>{{ 'label.updated_at'|trans({}, 'category') }}</dt>
+            <dd>{{ category.updatedAt|format_date('long') }}</dd>
+            <dt>{{ 'label.title'|trans({}, 'category') }}</dt>
+            <dd>{{  category.title }}</dd>
+        </dl>
+        <div style="display: flex; gap: 20px; max-width: 400px; margin: 20px;">
+            <a href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans({}, 'category') }}"
+               class="btn btn-warning flex-fill">
+                {{ 'action.edit'|trans({}, 'category') }}
+            </a>
+            <a href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans({}, 'category') }}"
+               class="btn btn-danger flex-fill">
+                {{ 'action.delete'|trans({}, 'category') }}
+            </a>
+        </div>
+{% if operations is defined and operations|length > 0 %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{ 'label.id'|trans({}, 'operation') }}</th>
+                <th>{{ 'label.title'|trans({}, 'operation') }}</th>
+                <th>{{ 'label.created_at'|trans({}, 'operation') }}</th>
+                <th>{{ 'label.updated_at'|trans({}, 'operation') }}</th>
+                <th>{{ 'label.amount'|trans({}, 'operation') }}</th>
+                <th>{{ 'label.operation_description'|trans({}, 'operation') }}</th>
+                <th>{{ 'label.actions'|trans({}, 'operation') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for operation in operations %}
+                <tr>
+                    <td>{{ operation.id }}</td>
+                    <td>{{ operation.title }}</td>
+                    <td>{{ operation.createdAt|format_date('long') }}</td>
+                    <td>{{ operation.updatedAt|format_date('long') }}</td>
+                    <td>{{ operation.amount|number_format(2) }}</td>
+                    <td>{{ operation.operationDescription }}</td>
+                    <td>
+                        <a href="{{ url('operation_view', {id: operation.id}) }}"
+                           title="{{ 'action.view'|trans({}, 'operation') }}"
+                           class="btn btn-primary">
+                            {{ 'action.view'|trans({}, 'operation') }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>{{ 'message.no_operations'|trans({}, 'category') }}</p>
+{% endif %}
+
+        <p>
+            <a href="{{ url('category_index') }}" title="{{ 'action.back_to_list'|trans({}, 'category') }}"
+		class="btn btn-lg btn-primary">
+                {{ 'action.back_to_list'|trans({}, 'category') }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans({}, 'category') }}
+        </p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.operation_edit'|trans({'%id%': operation.id|default('')}, 'operation') }}
+{% endblock %}
+
+{% block body %}
+    {% include 'default/_form_operation.html.twig' with {
+        page_title: 'title.operation_edit'|trans({'%id%': operation.id|default('')}, 'operation'),
+        form: form,
+        submit_label: 'action.edit'|trans({}, 'operation'),
+        back_to_list_path: 'operation_index',
+    } %}
+{% endblock %}

@@ -1,0 +1,32 @@
+title:
+  category_list: "Lista kategorii"
+  category_detail: "Szczegóły kategorii"
+  category_create: "Dodaj nową kategorię"
+  category_delete: "Usuń kategorię %id%"
+  category_details: "Szczegóły kategorii"
+  category_edit: "Edycja kategorii"
+label:
+  id: "ID"
+  created_at: "Utworzono"
+  updated_at: "Zaktualizowano"
+  title: "Tytuł"
+  view: "Zobacz"
+
+action:
+  view: "Pokaż"
+  back_to_list: "Powrót do listy kategorii"
+  to_category_list: "Lista kategorii"
+  save: "Zapisz Kategorię"
+  delete: "Usuń kategorię"
+  edit: "Edytuj kategorię"
+  action: "Akcja"
+  create: "Stwórz kategorię"
+
+message:
+  empty_list: "Brak kategorii do wyświetlenia"
+  record_not_found: "Rekord nie został znaleziony"
+  category_contains_tasks: "Ten rekord jest używany w niektórych operacjach. Usunięcie go może spowodować niespójność bazy danych"
+  deleted_successfully: "Pomyślnie usunięto"
+  no_operations: "Brak operacji przypisanych do kategorii"
+  created_successfully: "Kategoria powstała"
+  edited_successfully: "Kategoria została zmieniona"

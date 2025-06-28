@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.view_user'|trans({}, 'admin') }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.view_user'|trans({}, 'admin') }}</h1>
+
+    <ul>
+        <li><strong>{{ 'label.id'|trans({}, 'admin') }}:</strong> {{ user.id }}</li>
+        <li><strong>{{ 'label.email'|trans({}, 'admin') }}:</strong> {{ user.email }}</li>
+        <li><strong>{{ 'label.role'|trans({}, 'admin') }}:</strong> {{ user.roles|join(', ') }}</li>
+    </ul>
+
+    <a href="{{ path('admin_user_index') }}" class="btn btn-secondary">
+        {{ 'button.back_to_list'|trans({}, 'admin') }}
+    </a>
+{% endblock %}

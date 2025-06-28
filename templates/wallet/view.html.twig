@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.wallet_details'|trans({'%id%': wallet.id|default('')}, 'wallet') }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.wallet_details'|trans({'%id%': wallet.id|default('')}, 'wallet') }}</h1>
+    <div class="card text-white bg-dark mb-3" style="max-width: 22rem; float: right;">
+        <div class="card-body">
+            <h5 class="card-title">{{ 'label.current_balance'|trans({}, 'operation') }}</h5>
+            <p class="card-text" style="font-size: 1.5rem;">
+                {{ balance is not null ? balance|number_format(2, '.', ',') : '0.00' }} zł
+            </p>
+        </div>
+    </div>
+    {% if wallet is defined and wallet is not null %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans({}, 'wallet') }}</dt>
+            <dd>{{ wallet.id }}</dd>
+
+            <dt>{{ 'label.created_at'|trans({}, 'wallet') }}</dt>
+            <dd>{{ wallet.createdAt|format_date('long') }}</dd>
+
+            <dt>{{ 'label.updated_at'|trans({}, 'wallet') }}</dt>
+            <dd>{{ wallet.updatedAt|format_date('long') }}</dd>
+
+            <dt>{{ 'label.title'|trans({}, 'wallet') }}</dt>
+            <dd>{{ wallet.title }}</dd>
+        </dl>
+
+        <div style="display: flex; gap: 20px; max-width: 400px; margin: 20px 0;">
+            <a href="{{ url('wallet_edit', {id: wallet.id}) }}"
+               title="{{ 'action.edit'|trans({}, 'wallet') }}" class="btn btn-warning flex-fill">
+                {{ 'action.edit'|trans({}, 'wallet') }}
+            </a>
+        </div>
+        <a href="{{ path('operation_create_with_wallet', {walletId: wallet.id}) }}"
+           title="{{ 'action.create_operation'|trans({}, 'operation') }}"
+           class="btn btn-primary flex-fill">
+            {{ 'action.create_operation'|trans({}, 'wallet') }}
+        </a>
+
+        {% if operations is defined and operations|length > 0 %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ 'label.id'|trans({}, 'operation') }}</th>
+                    <th>{{ 'label.title'|trans({}, 'operation') }}</th>
+                    <th>{{ 'label.created_at'|trans({}, 'operation') }}</th>
+                    <th>{{ 'label.updated_at'|trans({}, 'operation') }}</th>
+                    <th>{{ 'label.amount'|trans({}, 'operation') }}</th>
+                    <th>{{ 'label.operation_description'|trans({}, 'operation') }}</th>
+                    <th>{{ 'label.actions'|trans({}, 'operation') }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for operation in operations %}
+                    <tr>
+                        <td>{{ operation.id }}</td>
+                        <td>{{ operation.title }}</td>
+                        <td>{{ operation.createdAt|format_date('long') }}</td>
+                        <td>{{ operation.updatedAt|format_date('long') }}</td>
+                        <td>{{ operation.amount|number_format(2) }}</td>
+                        <td>{{ operation.operationDescription }}</td>
+                        <td>
+                            <a href="{{ url('operation_view', {id: operation.id}) }}"
+                               title="{{ 'action.view'|trans({}, 'operation') }}"
+                               class="btn btn-primary">
+                                {{ 'action.view'|trans({}, 'operation') }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>{{ 'message.no_operations'|trans({}, 'wallet') }}</p>
+        {% endif %}
+
+        <p>
+            <a href="{{ url('wallet_index') }}"
+               title="{{ 'action.back_to_list'|trans({}, 'wallet') }}"
+               class="btn btn-lg btn-primary">
+                {{ 'action.back_to_list'|trans({}, 'wallet') }}
+            </a>
+        </p>
+
+    {% else %}
+        <p>{{ 'message.record_not_found'|trans({}, 'wallet') }}</p>
+    {% endif %}
+{% endblock %}

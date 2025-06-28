@@ -1,0 +1,35 @@
+title:
+  edit_tag: "Edytuj Tag"
+  tag_list: "Lista tagów"
+  tag_detail: "Szczegóły tagów"
+  tag_create: "Dodaj nowy tag"
+  tag_delete: "Usuń tag #%id%"
+  tag_edit: "Edytuj tag"
+  tag_details: "Szczegóły tagu"
+
+label:
+  id: "ID"
+  created_at: "Utworzono"
+  updated_at: "Zaktualizowano"
+  title: "Tytuł"
+  view: "Zobacz"
+  tags: "Tagi"
+
+action:
+  view: "Pokaż"
+  back_to_list: "Powrót do listy tagów"
+  to_tag_list: "Lista tagów"
+  save: "Zapisz tag"
+  delete: "Usuń tag"
+  edit: "Edytuj tag"
+  action: "Akcja"
+  create: "Stwórz tag"
+
+message:
+  empty_list: "Brak tagów do wyświetlenia"
+  record_not_found: "Rekord nie został znaleziony"
+  tag_contains_tasks: "Ten rekord jest używany w niektórych operacjach. Usunięcie go może spowodować niespójność bazy danych"
+  deleted_successfully: "Pomyślnie usunięto"
+  no_operation: "Brak operacji przypisanych do tagów"
+  created_successfully: "Tag powstał"
+  edited_successfully: "Tag został zmieniony"
